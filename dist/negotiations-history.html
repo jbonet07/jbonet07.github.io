@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>UBold - Responsive Admin Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      content="A fully featured admin theme which can be used to build CRM, CMS, etc."
+      name="description"
+    />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap Tables css -->
+    <link
+      href="assets/libs/bootstrap-table/bootstrap-table.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- App css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- Begin page -->
+    <div id="wrapper">
+      <!-- Topbar Start -->
+      <div class="navbar-custom">
+        <!-- LOGO -->
+        <div class="logo-box">
+          <a href="index.html" class="logo text-center">
+            <span class="logo-lg">
+              <img src="assets/images/LOGO.png" alt="" height="35" />
+              <!-- <span class="logo-lg-text-light">UBold</span> -->
+            </span>
+            <span class="logo-sm">
+              <!-- <span class="logo-sm-text-dark">U</span> -->
+              <img src="assets/images/logo-sm.png" alt="" height="24" />
+            </span>
+          </a>
+        </div>
+        <div
+          class="input-group"
+          style="width: 50%; height: calc(1.5em + .9rem + 2px);margin: auto"
+        >
+          <div class="input-group-prepend">
+            <div>
+              <select
+                class="form-control"
+                id="searchType"
+                style="background-color: #32ad6c; color: white; border: none"
+              >
+                <option>Products</option>
+                <option>Suppliers</option>
+              </select>
+            </div>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="search-inp"
+            placeholder="Search..."
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-secondary"
+              type="submit"
+              style="background-color: #32ad6c; color: white"
+              id="search-btn"
+              onclick="searchLocal()"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="float-right" style="align-content: center; display: flex">
+          <select class="form-control" id="language-select" style="color: gray">
+            <option>English</option>
+            <option>Spanish</option>
+          </select>
+        </div>
+      </div>
+      <script>
+        if (window.sessionStorage.getItem("search"))
+          document.getElementById("search-inp").value = window.sessionStorage.getItem(
+            "search"
+          );
+        function searchLocal() {
+          var x = document.getElementById("search-inp").value;
+          window.sessionStorage.setItem("search", x);
+          var type = document.getElementById("searchType").value;
+          if (type === "Products") {
+            window.location.replace("products.html");
+          } else {
+            window.location.replace("suppliers.html");
+          }
+        }
+      </script>
+      <!-- end Topbar -->
+
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+
+      <div class="content-page" style="margin-top: 70px">
+        <!-- start page title -->
+
+        <!-- end page title -->
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card-box">
+              <h4 class="header-title">Sells</h4>
+
+              <table
+                data-toggle="table"
+                data-sort-name="id"
+                data-page-list="[5, 10, 20]"
+                data-page-size="5"
+                data-buttons-class="xs btn-light"
+                data-pagination="true"
+                data-show-pagination-switch="true"
+                class="table-borderless "
+              >
+                <thead class="thead-light">
+                  <tr>
+                    <th
+                      data-field="id"
+                      data-sortable="true"
+                      data-formatter="invoiceFormatter"
+                    >
+                      Order ID
+                    </th>
+                    <th data-field="name" data-sortable="true">Name</th>
+                    <th
+                      data-field="date"
+                      data-sortable="true"
+                      data-formatter="dateFormatter"
+                    >
+                      Order date
+                    </th>
+                    <th
+                      data-field="amount"
+                      data-align="center"
+                      data-sortable="true"
+                      data-sorter="priceSorter"
+                    >
+                      Price
+                    </th>
+                    <th
+                      data-field="status"
+                      data-align="center"
+                      data-sortable="true"
+                      data-formatter="statusFormatter"
+                    >
+                      Status
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>UB-1609</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Unpaid</td>
+                  </tr>
+                  <tr>
+                    <td>UB-1610</td>
+                    <td>Woldt</td>
+                    <td>24 Jun 2017</td>
+                    <td>$ 15.00</td>
+                    <td>Paid</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1611</td>
+                    <td>Leonardo</td>
+                    <td>25 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Shipped</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1612</td>
+                    <td>Halladay</td>
+                    <td>27 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Refunded</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1613</td>
+                    <td>Badgett</td>
+                    <td>28 Jun 2017</td>
+                    <td>$ 95.00</td>
+                    <td>Unpaid</td>
+                  </tr>
+                  <tr>
+                    <td>UB-1614</td>
+                    <td>Boudreaux</td>
+                    <td>29 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Paid</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1615</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Shipped</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1616</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Refunded</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1617</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Unpaid</td>
+                  </tr>
+                  <tr>
+                    <td>UB-1618</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Paid</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1619</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Shipped</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1620</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Refunded</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1621</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Unpaid</td>
+                  </tr>
+                  <tr>
+                    <td>UB-1622</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Paid</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1623</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Shipped</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1624</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Refunded</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- end card-box-->
+          </div>
+          <!-- end col-->
+        </div>
+        <!-- end row-->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card-box">
+              <h4 class="header-title">Buys</h4>
+
+              <table
+                data-toggle="table"
+                data-sort-name="id"
+                data-page-list="[5, 10, 20]"
+                data-page-size="5"
+                data-buttons-class="xs btn-light"
+                data-pagination="true"
+                data-show-pagination-switch="true"
+                class="table-borderless "
+              >
+                <thead class="thead-light">
+                  <tr>
+                    <th
+                      data-field="id"
+                      data-sortable="true"
+                      data-formatter="invoiceFormatter"
+                    >
+                      Order ID
+                    </th>
+                    <th data-field="name" data-sortable="true">Name</th>
+                    <th
+                      data-field="date"
+                      data-sortable="true"
+                      data-formatter="dateFormatter"
+                    >
+                      Order date
+                    </th>
+                    <th
+                      data-field="amount"
+                      data-align="center"
+                      data-sortable="true"
+                      data-sorter="priceSorter"
+                    >
+                      Price
+                    </th>
+                    <th
+                      data-field="status"
+                      data-align="center"
+                      data-sortable="true"
+                      data-formatter="statusFormatter"
+                    >
+                      Status
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>UB-1609</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Unpaid</td>
+                  </tr>
+                  <tr>
+                    <td>UB-1610</td>
+                    <td>Woldt</td>
+                    <td>24 Jun 2017</td>
+                    <td>$ 15.00</td>
+                    <td>Paid</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1611</td>
+                    <td>Leonardo</td>
+                    <td>25 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Shipped</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1612</td>
+                    <td>Halladay</td>
+                    <td>27 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Refunded</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1613</td>
+                    <td>Badgett</td>
+                    <td>28 Jun 2017</td>
+                    <td>$ 95.00</td>
+                    <td>Unpaid</td>
+                  </tr>
+                  <tr>
+                    <td>UB-1614</td>
+                    <td>Boudreaux</td>
+                    <td>29 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Paid</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1615</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Shipped</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1616</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Refunded</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1617</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Unpaid</td>
+                  </tr>
+                  <tr>
+                    <td>UB-1618</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Paid</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1619</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Shipped</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1620</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Refunded</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1621</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Unpaid</td>
+                  </tr>
+                  <tr>
+                    <td>UB-1622</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Paid</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1623</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Shipped</td>
+                  </tr>
+
+                  <tr>
+                    <td>UB-1624</td>
+                    <td>Boudreaux</td>
+                    <td>22 Jun 2017</td>
+                    <td>$ 35.00</td>
+                    <td>Refunded</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- end card-box-->
+          </div>
+          <!-- end col-->
+        </div>
+        <!-- end row-->
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- End Page content -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Vendor js -->
+    <script src="assets/js/vendor.min.js"></script>
+
+    <!-- Bootstrap Tables js -->
+    <script src="assets/libs/bootstrap-table/bootstrap-table.min.js"></script>
+
+    <!-- Init js -->
+    <script src="assets/js/pages/bootstrap-tables.init.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.min.js"></script>
+  </body>
+</html>

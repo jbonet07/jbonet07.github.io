@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>UBold - Responsive Admin Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      content="A fully featured admin theme which can be used to build CRM, CMS, etc."
+      name="description"
+    />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- App css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- Begin page -->
+    <div id="wrapper">
+      <!-- Topbar Start -->
+      <div class="navbar-custom">
+        <!-- LOGO -->
+        <div class="logo-box">
+          <a href="index.html" class="logo text-center">
+            <span class="logo-lg">
+              <img src="assets/images/LOGO.png" alt="" height="35" />
+              <!-- <span class="logo-lg-text-light">UBold</span> -->
+            </span>
+            <span class="logo-sm">
+              <!-- <span class="logo-sm-text-dark">U</span> -->
+              <img src="assets/images/logo-sm.png" alt="" height="24" />
+            </span>
+          </a>
+        </div>
+        <div
+          class="input-group"
+          style="width: 50%; height: calc(1.5em + .9rem + 2px);margin: auto"
+        >
+          <div class="input-group-prepend">
+            <div>
+              <select
+                class="form-control"
+                id="searchType"
+                style="background-color: #32ad6c; color: white; border: none"
+              >
+                <option>Products</option>
+                <option>Suppliers</option>
+              </select>
+            </div>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="search-inp"
+            placeholder="Search..."
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-secondary"
+              type="submit"
+              style="background-color: #32ad6c; color: white"
+              id="search-btn"
+              onclick="searchLocal()"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="float-right" style="align-content: center; display: flex">
+          <select class="form-control" id="language-select" style="color: gray">
+            <option>English</option>
+            <option>Spanish</option>
+          </select>
+        </div>
+      </div>
+      <script>
+        if (window.localStorage.getItem("search"))
+          document.getElementById("search-inp").value = window.localStorage.getItem(
+            "search"
+          );
+        function searchLocal() {
+          var x = document.getElementById("search-inp").value;
+          window.localStorage.setItem("search", x);
+          var type = document.getElementById("searchType").value;
+          if (type === "Products") {
+            window.location.replace("products.html");
+          } else {
+            window.location.replace("suppliers.html");
+          }
+        }
+      </script>
+      <!-- end Topbar -->
+
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+
+      <div class="content-page">
+        <div class="content">
+          <!-- Start Content-->
+          <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+              <div class="col-12">
+                <div class="page-title-box">
+                  <h4 class="page-title">Companies</h4>
+                </div>
+              </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row" style="margin-bottom: 2rem">
+              <div class="col-12">
+                <h1>Spain > Tech</h1>
+              </div>
+              <!-- end col-->
+            </div>
+            <!-- end row -->
+
+            <div class="row">
+              <div class="col-lg-2" id="categories-menu">
+                <h3>Categories</h3>
+                <div class="categories-list">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios1"
+                      value="option1"
+                      checked
+                    />
+                    <label class="form-check-label" for="exampleRadios1">
+                      <b>Tech</b>
+                    </label>
+                  </div>
+                  <div class="form-check categories-list">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="example"
+                      id="exampleRadios1"
+                      value="option1"
+                      checked
+                    />
+                    <label class="form-check-label" for="exampleRadios1">
+                      Computers
+                    </label>
+                  </div>
+                  <div class="form-check categories-list">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="example"
+                      id="exampleRadios1"
+                      value="option1"
+                      checked
+                    />
+                    <label class="form-check-label" for="exampleRadios1">
+                      Phones
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios2"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="exampleRadios2">
+                      <b>Automobility</b>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios3"
+                      value="option3"
+                    />
+                    <label class="form-check-label" for="exampleRadios3">
+                      <b>Agriculture</b>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-10 row" id="companies-list">
+                <div class="col-lg-4">
+                  <div class="card-box bg-pattern">
+                    <div class="text-center">
+                      <img
+                        src="assets/images/companies/amazon.png"
+                        alt="logo"
+                        class="avatar-xl rounded-circle mb-3"
+                      />
+                      <h4 class="mb-1 font-20">Amazon Inc.</h4>
+                      <p class="text-muted  font-14">Seattle, Washington</p>
+                      <p class="text-muted  font-14">E-Commerce Company</p>
+                    </div>
+
+                    <p class="font-14 text-center text-muted">
+                      Amazon.com, Inc., doing business as Amazon, is an American
+                      electronic commerce and cloud computing company based in
+                      Seattle..
+                    </p>
+
+                    <div class="row mt-4 text-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-warning"
+                        style="width: 100%; border-radius: 20px; margin-bottom: 0.4rem"
+                      >
+                        SAVE SHORTLIST
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-outline-warning"
+                        style="width: 100%; border-radius: 20px"
+                      >
+                        VIEW PRODUCTS
+                      </button>
+                    </div>
+                  </div>
+                  <!-- end card-box -->
+                </div>
+                <!-- end col -->
+
+                <div class="col-lg-4">
+                  <div class="card-box bg-pattern">
+                    <div>
+                      <div class="text-center">
+                        <img
+                          src="assets/images/companies/apple.png"
+                          alt="logo"
+                          class="avatar-xl rounded-circle mb-3"
+                        />
+                        <h4 class="mb-1 font-20">Apple Inc.</h4>
+                        <p class="text-muted  font-14">Cupertino, California</p>
+                        <p class="text-muted  font-14">Technology Company</p>
+                      </div>
+
+                      <p class="font-14 text-center text-muted">
+                        Apple Inc. is an American multinational technology
+                        company headquartered in Cupertino, California, that
+                        designs, develops, and sells..
+                      </p>
+                    </div>
+                    <div class="row mt-4 text-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-warning"
+                        style="width: 100%; border-radius: 20px; margin-bottom: 0.4rem"
+                      >
+                        SAVE SHORTLIST
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-outline-warning"
+                        style="width: 100%; border-radius: 20px"
+                      >
+                        VIEW PRODUCTS
+                      </button>
+                    </div>
+                  </div>
+                  <!-- end card-box -->
+                </div>
+                <!-- end col -->
+
+                <div class="col-lg-4">
+                  <div class="card-box bg-pattern">
+                    <div class="text-center">
+                      <img
+                        src="assets/images/companies/google.png"
+                        alt="logo"
+                        class="avatar-xl rounded-circle mb-3"
+                      />
+                      <h4 class="mb-1 font-20">Google LLC</h4>
+                      <p class="text-muted  font-14">
+                        Menlo Park, California
+                      </p>
+                      <p class="text-muted  font-14">Technology Company</p>
+                    </div>
+
+                    <p class="font-14 text-center text-muted">
+                      Google LLC is an American multinational technology company
+                      that specializes in Internet-related services and
+                      products, which include..
+                    </p>
+
+                    <div class="row mt-4 text-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-warning"
+                        style="width: 100%; border-radius: 20px; margin-bottom: 0.4rem"
+                      >
+                        SAVE SHORTLIST
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-outline-warning"
+                        style="width: 100%; border-radius: 20px"
+                      >
+                        VIEW PRODUCTS
+                      </button>
+                    </div>
+                  </div>
+                  <!-- end card-box -->
+                </div>
+                <!-- end col -->
+                <div class="col-lg-4">
+                  <div class="card-box bg-pattern">
+                    <div class="text-center">
+                      <img
+                        src="assets/images/companies/airbnb.png"
+                        alt="logo"
+                        class="avatar-xl rounded-circle mb-3"
+                      />
+                      <h4 class="mb-1 font-20">Airbnb Inc.</h4>
+                      <p class="text-muted  font-14">
+                        San Francisco, California
+                      </p>
+                    </div>
+
+                    <p class="font-14 text-center text-muted">
+                      A‌i‌r‌b‌n‌b‌, ‌ ‌I‌n‌c‌.‌ is a company based in San
+                      Francisco that operates an online marketplace and
+                      hospitality service for people to lease or rent..
+                    </p>
+
+                    <div class="row mt-4 text-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-warning"
+                        style="width: 100%; border-radius: 20px; margin-bottom: 0.4rem"
+                      >
+                        SAVE SHORTLIST
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-outline-warning"
+                        style="width: 100%; border-radius: 20px"
+                      >
+                        VIEW PRODUCTS
+                      </button>
+                    </div>
+                  </div>
+                  <!-- end card-box -->
+                </div>
+                <!-- end col -->
+
+                <div class="col-lg-4">
+                  <div class="card-box bg-pattern">
+                    <div class="text-center">
+                      <img
+                        src="assets/images/companies/facebook.png"
+                        alt="logo"
+                        class="avatar-xl rounded-circle mb-3"
+                      />
+                      <h4 class="mb-1 font-20">Facebook Inc.</h4>
+                      <p class="text-muted  font-14">
+                        Cambridge, Massachusetts
+                      </p>
+                    </div>
+
+                    <p class="font-14 text-center text-muted">
+                      Facebook is an American online social media and social
+                      networking service company based in Menlo Park,
+                      California..
+                    </p>
+
+                    <div class="row mt-4 text-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-warning"
+                        style="width: 100%; border-radius: 20px; margin-bottom: 0.4rem"
+                      >
+                        SAVE SHORTLIST
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-outline-warning"
+                        style="width: 100%; border-radius: 20px"
+                      >
+                        VIEW PRODUCTS
+                      </button>
+                    </div>
+                  </div>
+                  <!-- end card-box -->
+                </div>
+                <!-- end col -->
+
+                <div class="col-lg-4">
+                  <div class="card-box bg-pattern">
+                    <div class="text-center">
+                      <img
+                        src="assets/images/companies/cisco.png"
+                        alt="logo"
+                        class="avatar-xl rounded-circle mb-3"
+                      />
+                      <h4 class="mb-1 font-20">Cisco Systems</h4>
+                      <p class="text-muted  font-14">San Jose, California</p>
+                    </div>
+
+                    <p class="font-14 text-center text-muted">
+                      Cisco Systems, Inc. is an American multinational
+                      technology conglomerate headquartered in San Jose,
+                      California..
+                    </p>
+
+                    <div class="row mt-4 text-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-warning"
+                        style="width: 100%; border-radius: 20px; margin-bottom: 0.4rem"
+                      >
+                        SAVE SHORTLIST
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-outline-warning"
+                        style="width: 100%; border-radius: 20px"
+                      >
+                        VIEW PRODUCTS
+                      </button>
+                    </div>
+                  </div>
+                  <!-- end card-box -->
+                </div>
+                <!-- end col -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+    <!-- END wrapper -->
+
+    <!-- Vendor js -->
+    <script src="assets/js/vendor.min.js"></script>
+    <script src="assets/js/pages/companies.init.js"></script>
+    <!-- App js -->
+    <script src="assets/js/app.min.js"></script>
+  </body>
+</html>

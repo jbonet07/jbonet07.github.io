@@ -1,0 +1,48 @@
+//
+// profile.scss
+//
+
+.post-user-comment-box {
+  background-color: $gray-100;
+  margin: 0 -0.75rem;
+  padding: 1rem;
+  margin-top: 20px;
+}
+#user-profile {
+  margin-top: 3rem;
+
+  #profile-image {
+    position: absolute;
+    height: 20rem;
+    z-index: -1000;
+    width: 100%;
+    top: 70px;
+    background-image: url(https://s3-us-west-1.amazonaws.com/bgimglibrary/LinkedIn-Background-Image-8.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #user-info {
+    margin-top: 18rem;
+  }
+  .nav-bordered a.active {
+    border-bottom: 2px solid #32ad6c !important;
+  }
+  .form-control {
+    margin-bottom: 0.5rem;
+  }
+  .col-md-5 {
+    padding: 0;
+  }
+  .tab-pane > .card-box {
+    border: 1px solid lightgray;
+  }
+  .image-wrapper-prof {
+    height: 15rem;
+    width: 100%;
+    background-image: url(https://souqcms.s3.amazonaws.com/spring/images/2017/Apple/iPhone-8/3-iPhone-8-silver.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}

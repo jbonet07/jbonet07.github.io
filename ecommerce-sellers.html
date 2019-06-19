@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>UBold - Responsive Admin Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      content="A fully featured admin theme which can be used to build CRM, CMS, etc."
+      name="description"
+    />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- App css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- Begin page -->
+    <div id="wrapper">
+      <!-- Topbar Start -->
+      <div class="navbar-custom">
+        <!-- LOGO -->
+        <div class="logo-box">
+          <a href="index.html" class="logo text-center">
+            <span class="logo-lg">
+              <img src="assets/images/LOGO.png" alt="" height="35" />
+              <!-- <span class="logo-lg-text-light">UBold</span> -->
+            </span>
+            <span class="logo-sm">
+              <!-- <span class="logo-sm-text-dark">U</span> -->
+              <img src="assets/images/logo-sm.png" alt="" height="24" />
+            </span>
+          </a>
+        </div>
+        <div
+          class="input-group"
+          style="width: 50%; height: calc(1.5em + .9rem + 2px);margin: auto"
+        >
+          <div class="input-group-prepend">
+            <div>
+              <select
+                class="form-control"
+                id="searchType"
+                style="background-color: #32ad6c; color: white; border: none"
+              >
+                <option>Products</option>
+                <option>Suppliers</option>
+              </select>
+            </div>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="search-inp"
+            placeholder="Search..."
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-secondary"
+              type="submit"
+              style="background-color: #32ad6c; color: white"
+              id="search-btn"
+              onclick="searchLocal()"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="float-right" style="align-content: center; display: flex">
+          <select class="form-control" id="language-select" style="color: gray">
+            <option>English</option>
+            <option>Spanish</option>
+          </select>
+        </div>
+      </div>
+      <script>
+        if (window.sessionStorage.getItem("search"))
+          document.getElementById("search-inp").value = window.sessionStorage.getItem(
+            "search"
+          );
+        function searchLocal() {
+          var x = document.getElementById("search-inp").value;
+          window.sessionStorage.setItem("search", x);
+          var type = document.getElementById("searchType").value;
+          if (type === "Products") {
+            window.location.replace("products.html");
+          } else {
+            window.location.replace("suppliers.html");
+          }
+        }
+      </script>
+      <!-- end Topbar -->
+
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+      <span id="check-page" hidden>step1</span>
+      <div class="content-page" style="margin-top: 70px">
+        <div style="padding: 2rem">
+          <div class="row" style="height: 10rem; align-content: space-between">
+            <div
+              class="col-md-2 text-center"
+              style="border: solid 1px black; display: flex; flex-direction: column; justify-content: space-between"
+            >
+              <h3>All Inquires</h3>
+              <div style="display:flex; flex-wrap: no-wrap">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search..."
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-secondary"
+                    type="submit"
+                    style="background-color: #32ad6c; color: white"
+                    id="search-btn"
+                  >
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+              <div
+                style="display:flex; justify-content: space-around; align-content: flex-end"
+              >
+                <span>All Statuses</span>
+                <span>Unread</span>
+              </div>
+            </div>
+            <div
+              class="col-md-1 text-right"
+              style="border: solid 1px black; display:flex; flex-direction: column; justify-content: space-around; align-content: flex-end"
+            >
+              <div>
+                <h3>Zara S.A</h3>
+                <span>BARCELONA/SPAIN</span>
+              </div>
+              <div><span>Alexandre Mosquera</span></div>
+            </div>
+            <div
+              class="col-md-5"
+              style="border: solid 1px black; display: flex; justify-content: space-around; padding-top: 1.2rem; align-content: center"
+            >
+              <div
+                class="text-center align-middle"
+                style="font-weight: bold"
+                id="step1"
+              >
+                <h1 style="font-weight: bolder">1</h1>
+                <p>Start Negotiation</p>
+              </div>
+              <div
+                class="text-center align-middle step-indicator"
+                style="font-weight: bold"
+                id="step2"
+              >
+                <h1 style="font-weight: bolder">2</h1>
+                <p>Confirm Negotiation</p>
+              </div>
+              <div
+                class="text-center align-middle step-indicator"
+                style="font-weight: bold"
+                id="step3"
+              >
+                <h1 style="font-weight: bolder">3</h1>
+                <p>Succes</p>
+              </div>
+            </div>
+            <div
+              class="col-md-4 text-center"
+              style="border: solid 1px black; padding-top: 1.2rem; background-color: rgb(167, 164, 164)"
+            >
+              <h3>NEGOTIATION ID: 000001</h3>
+              <h3>
+                STATUS:
+                <span
+                  style="color:#32ad6c !important;font-weight: bold; font-size: 1rem"
+                  id="negotiation-status"
+                  >Waiting to Send Negotiation</span
+                >
+              </h3>
+            </div>
+          </div>
+          <div class="row" style="height: 40rem">
+            <div class="col-md-2" style="border: solid 1px black; padding: 0">
+              <div
+                style="border-bottom: solid 1px black; display: flex; justify-content: center "
+              >
+                <span style="margin-right: 5px; font-weight: 500">BUYER</span>
+                <div class="custom-control custom-switch">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="customSwitch1"
+                  />
+                  <label class="custom-control-label" for="customSwitch1"
+                    >SELLER</label
+                  >
+                </div>
+              </div>
+              <div
+                class="text-center"
+                style="border-bottom: solid 1px black; height: 12rem"
+              >
+                <h3>PRODUCTS</h3>
+              </div>
+            </div>
+            <div
+              class="col-md-6"
+              style="border: solid 1px black; background-color: lightsteelblue; display:flex; flex-direction: column; justify-content: flex-end"
+            >
+              CHAT
+              <input class="form-control" />
+            </div>
+            <div class="col-md-4">
+              <div style="overflow: auto; height: 90%; padding-bottom: 5px;">
+                <div
+                  style="border: solid 1px black; margin-bottom: 10px;padding: 10px"
+                >
+                  <div class="row">
+                    <div
+                      class="col-md-5"
+                      style="display:flex; flex-direction: column"
+                    >
+                      <span>Image</span>
+                      <img
+                        src="assets/images/products/product-10.jpg"
+                        height="200"
+                        width="200"
+                      />
+                    </div>
+                    <div class="col-md-7">
+                      <div class="form-group">
+                        <label for="nameOfProduct">Name</label>
+                        <h3 id="nameOfProduct"></h3>
+                      </div>
+                      <div class="form-group">
+                        <label for="descriptionOfProduct">Description</label>
+                        <h4 id="descriptionOfProduct"></h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" style="flex-wrap: nowrap; margin-top: 10px">
+                    <div class="form-group col-4" style="margin: 5px">
+                      <label for="quantityOfProduct">Quantity</label>
+                      <input class="form-control" id="quantityOfProduct" />
+                    </div>
+                    <div class="form-group col-3" style="margin: 5px">
+                      <label for="unitOfProduct">Unit</label>
+                      <h4 id="unitOfProduct"></h4>
+                    </div>
+                    <div class="form-group col-4" style="margin: 5px">
+                      <label for="moqOfProduct">MOQ</label>
+                      <h4 id="moqOfProduct"></h4>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-top: 10px">
+                    <div class="form-group col-4" style="margin: 5px">
+                      <label for="unitPriceOfProduct">Unit Price</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">EUR €</span>
+                        </div>
+                        <input class="form-control" id="unitPriceOfProduct" />
+                      </div>
+                    </div>
+                    <div class="form-group col-4" style="margin: 5px">
+                      <label for="fobOfProduct">Total FOB Price</label>
+                      <h4 id="fobOfProduct">EUR 345</h4>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div
+                      class="form-group"
+                      style="width: 100%;padding-right: 20px; padding-left: 20px"
+                    >
+                      <label for="extraOfProduct"
+                        >Input specified product specification, quality
+                        requirement or Packaging details</label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="extraOfProduct"
+                        rows="3"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div
+                    class="row"
+                    style="flex-wrap: nowrap; justify-content: space-around"
+                  >
+                    <button class="form-control btn-danger" style="width: 40%">
+                      DELETE PRODUCT
+                    </button>
+                    <button class="form-control btn-warning" style="width: 40%">
+                      ADD POSTED PRODUCT
+                    </button>
+                  </div>
+                </div>
+                <div
+                  style="border: solid 1px black; margin-bottom: 10px;padding: 10px"
+                >
+                  <h3>SHIPMENT TERMS</h3>
+                  <div class="row" style="flex-wrap: nowrap; margin-left: 10px">
+                    <div
+                      style="text-align: center; line-height: 3; margin-right: 10px"
+                    >
+                      Shipping Address
+                    </div>
+                    <button class="btn btn-warning">VIEW</button>
+                  </div>
+                  <div
+                    class="row"
+                    style="flex-wrap: nowrap; justify-content: space-around"
+                  >
+                    <h4>
+                      Air Freight
+                    </h4>
+                    <h4>
+                      Sea Freight
+                    </h4>
+                    <h4>
+                      Land Freight
+                    </h4>
+                    <h4>
+                      Express
+                    </h4>
+                  </div>
+                  <div class="row" style="flex-wrap: nowrap;margin-top: 15px">
+                    <div class="col-5">Trade Terms</div>
+                    <select class="col-4 custom-select">
+                      <option selected>Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                  <div class="row" style="flex-wrap: nowrap;margin-top: 15px">
+                    <div class="col-5">Port Of Discharge</div>
+                    <select class="custom-select col-4">
+                      <option selected>Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="descriptionOfShipment"
+                      >Other trade terms requirements</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="descriptionOfShipment"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                  <div class="form-group" style="margin-left: 10px">
+                    <label for="shipmentDate">Shipment Date</label>
+                    <div class="row" style="flex-wrap: nowrap">
+                      <div
+                        class="form-check col-5"
+                        style="display:flex; flex-direction:column; justify-content: center; margin-left: 1.25rem"
+                      >
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="exampleRadios"
+                          id="exampleRadios1"
+                          value="option1"
+                          style="margin-top:0;"
+                        />
+                        <label class="form-check-label" for="exampleRadios1">
+                          Day(s) after seller recieves
+                        </label>
+                      </div>
+                      <select class="form-control col-5"
+                        ><option>INITIAL PAYMENY</option></select
+                      >
+                    </div>
+                    <div
+                      class="row"
+                      style="flex-wrap: nowrap; margin-top: 10px"
+                    >
+                      <div
+                        class="form-check col-5"
+                        style="display:flex; flex-direction:column; justify-content: center; margin-left: 1.25rem"
+                      >
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="exampleRadios"
+                          id="exampleRadios1"
+                          value="option1"
+                          style="margin-top:0;"
+                        />
+                        <label class="form-check-label" for="exampleRadios1">
+                          Specify Shipment Date
+                        </label>
+                      </div>
+                      <input class="form-control col-5" type="date" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="scheduleReqOfShipment"
+                      >Other schedule requirements</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="scheduleReqOfShipment"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                  <label for="billOfLading">BILL OF LADING</label>
+                  <div
+                    class="form-row"
+                    id="billOfLading"
+                    style="justify-content: center"
+                  >
+                    <div
+                      class="form-check col-4"
+                      style="display:flex; flex-direction:column; justify-content: center; margin-left: 1.25rem"
+                    >
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="ladingRadios"
+                        id="exampleRadios1"
+                        value="option1"
+                        style="margin-top:0;"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="exampleRadios1"
+                        style="font-size: 1rem"
+                      >
+                        ORIGINAL
+                      </label>
+                    </div>
+                    <div
+                      class="form-check col-4"
+                      style="display:flex; flex-direction:column; justify-content: center; margin-left: 1.25rem"
+                    >
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="ladingRadios"
+                        id="exampleRadios1"
+                        value="option1"
+                        style="margin-top:0;"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="exampleRadios1"
+                        style="font-size: 1rem"
+                      >
+                        EXPRESS RELEASE
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="border: solid 1px black; margin-bottom: 10px;padding: 10px"
+                >
+                  <h3>DOCUMENTATION</h3>
+                  <div class="row" style="flex-wrap: nowrap; font-size: 0.8rem">
+                    <div class="col-5">
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Commercial Invoice
+                        </label>
+                      </div>
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Packing List
+                        </label>
+                      </div>
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Certificate Origin
+                        </label>
+                      </div>
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Certificate of Inspection
+                        </label>
+                      </div>
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Cargo Insurance
+                        </label>
+                      </div>
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Analysis Certificate
+                        </label>
+                      </div>
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Composition Product
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-5">
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Airwaybill (AWB)
+                        </label>
+                      </div>
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          Bill of Landing(BL)
+                        </label>
+                      </div>
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          FBL
+                        </label>
+                      </div>
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          CMR
+                        </label>
+                      </div>
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          EUR-1
+                        </label>
+                      </div>
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          A. TR
+                        </label>
+                      </div>
+                      <div class="form-check doc-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="defaultCheck1"
+                        />
+                        <label class="form-check-label" for="defaultCheck1">
+                          FORMA.A
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="flex-wrap: nowrap">
+                <button
+                  style="height: 10%; background-color: #f7b84b; border-radius: 50px;color: white; font-size: 1.2rem"
+                  class="form-control btn-warning"
+                  id="send-negotiation"
+                >
+                  SEND NEGOTIATION
+                </button>
+                <button
+                  style="height: 10%; background-color: #32ad6c;color:white; border-radius: 50px; font-size: 1.2rem; display: none"
+                  class="form-control"
+                  id="accept-negotiation"
+                >
+                  ACCEPT NEGOTIATION
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- End Page content -->
+      <!-- ============================================================== -->
+    </div>
+
+    <!-- Vendor js -->
+    <script src="assets/js/vendor.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/pages/negotiation.init.js"></script>
+    <script src="assets/js/app.min.js"></script>
+  </body>
+</html>

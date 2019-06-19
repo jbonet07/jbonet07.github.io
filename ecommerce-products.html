@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>UBold - Responsive Admin Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      content="A fully featured admin theme which can be used to build CRM, CMS, etc."
+      name="description"
+    />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- App css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- Begin page -->
+    <div id="wrapper">
+      <!-- Topbar Start -->
+      <div class="navbar-custom">
+        <!-- LOGO -->
+        <div class="logo-box">
+          <a href="index.html" class="logo text-center">
+            <span class="logo-lg">
+              <img src="assets/images/LOGO.png" alt="" height="35" />
+              <!-- <span class="logo-lg-text-light">UBold</span> -->
+            </span>
+            <span class="logo-sm">
+              <!-- <span class="logo-sm-text-dark">U</span> -->
+              <img src="assets/images/logo-sm.png" alt="" height="24" />
+            </span>
+          </a>
+        </div>
+        <div
+          class="input-group"
+          style="width: 50%; height: calc(1.5em + .9rem + 2px);margin: auto"
+        >
+          <div class="input-group-prepend">
+            <div>
+              <select
+                class="form-control"
+                id="searchType"
+                style="background-color: #32ad6c; color: white; border: none"
+              >
+                <option>Products</option>
+                <option>Suppliers</option>
+              </select>
+            </div>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="search-inp"
+            placeholder="Search..."
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-secondary"
+              type="submit"
+              style="background-color: #32ad6c; color: white"
+              id="search-btn"
+              onclick="searchLocal()"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="float-right" style="align-content: center; display: flex">
+          <select class="form-control" id="language-select" style="color: gray">
+            <option>English</option>
+            <option>Spanish</option>
+          </select>
+        </div>
+      </div>
+      <script>
+        if (window.localStorage.getItem("search"))
+          document.getElementById("search-inp").value = window.localStorage.getItem(
+            "search"
+          );
+        function searchLocal() {
+          var x = document.getElementById("search-inp").value;
+          window.localStorage.setItem("search", x);
+          var type = document.getElementById("searchType").value;
+          if (type === "Products") {
+            window.location.replace("ecommerce-products.html");
+          } else {
+            window.location.replace("apps-companies.html");
+          }
+        }
+      </script>
+      <!-- end Topbar -->
+
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+
+      <div class="content-page">
+        <div class="content">
+          <!-- Start Content-->
+          <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+              <div class="col-12">
+                <div class="page-title-box">
+                  <h4 class="page-title">Products</h4>
+                </div>
+              </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+              <div
+                class="col-lg-2"
+                id="categories-menu"
+                style="margin-top: 20px"
+              >
+                <h3>Categories</h3>
+                <div class="categories-list">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios1"
+                      value="option1"
+                      checked
+                    />
+                    <label class="form-check-label" for="exampleRadios1">
+                      <b>Tech</b>
+                    </label>
+                  </div>
+                  <div class="form-check categories-list">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="example"
+                      id="exampleRadios1"
+                      value="option1"
+                      checked
+                    />
+                    <label class="form-check-label" for="exampleRadios1">
+                      Computers
+                    </label>
+                  </div>
+                  <div class="form-check categories-list">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="example"
+                      id="exampleRadios1"
+                      value="option1"
+                      checked
+                    />
+                    <label class="form-check-label" for="exampleRadios1">
+                      Phones
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios2"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="exampleRadios2">
+                      <b>Automobility</b>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios3"
+                      value="option3"
+                    />
+                    <label class="form-check-label" for="exampleRadios3">
+                      <b>Agriculture</b>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-10 row" id="product-list">
+                <div class="col-md-6 col-xl-3">
+                  <div class="card-box product-box">
+                    <div>
+                      <img
+                        src="assets/images/products/product-1.jpg"
+                        alt="product-pic"
+                        class="img-fluid"
+                      />
+                    </div>
+
+                    <div class="product-info">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <h5 class="font-16 mt-0 sp-line-1">
+                            <a
+                              href="ecommerce-prduct-detail.html"
+                              class="text-dark"
+                              >Cool Watch</a
+                            >
+                          </h5>
+                          <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half"></i>
+                          </div>
+                          <h5 class="m-0">
+                            <span class="text-muted"> Stocks : 98 units</span>
+                          </h5>
+                          <h5 class="m-0">
+                            <span class="text-muted"> Minumum : 20 units</span>
+                          </h5>
+                        </div>
+                        <div class="col-auto">
+                          <div class="product-price-tag">
+                            $39
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row align-items-center justify-content-end">
+                        <h5 style="margin-bottom: 0">Company Name</h5>
+                      </div>
+                      <!-- end row -->
+                    </div>
+                    <!-- end product info-->
+                  </div>
+                  <!-- end card-box-->
+                </div>
+                <!-- end col-->
+
+                <div class="col-md-6 col-xl-3">
+                  <div class="card-box product-box">
+                    <div class="product-action">
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-success btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-pencil"></i
+                      ></a>
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-danger btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-close"></i
+                      ></a>
+                    </div>
+
+                    <div>
+                      <img
+                        src="assets/images/products/product-2.jpg"
+                        alt="product-pic"
+                        class="img-fluid"
+                      />
+                    </div>
+
+                    <div class="product-info">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <h5 class="font-16 mt-0 sp-line-1">
+                            <a
+                              href="ecommerce-prduct-detail.html"
+                              class="text-dark"
+                              >Biblio Plastic Armchair</a
+                            >
+                          </h5>
+                          <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </div>
+                          <h5 class="m-0">
+                            <span class="text-muted"> Stocks : 23 pcs</span>
+                          </h5>
+                        </div>
+                        <div class="col-auto">
+                          <div class="product-price-tag">
+                            $98
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end row -->
+                    </div>
+                    <!-- end product info-->
+                  </div>
+                  <!-- end card-box-->
+                </div>
+                <!-- end col-->
+
+                <div class="col-md-6 col-xl-3">
+                  <div class="card-box product-box">
+                    <div class="product-action">
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-success btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-pencil"></i
+                      ></a>
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-danger btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-close"></i
+                      ></a>
+                    </div>
+
+                    <div>
+                      <img
+                        src="assets/images/products/product-3.jpg"
+                        alt="product-pic"
+                        class="img-fluid"
+                      />
+                    </div>
+
+                    <div class="product-info">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <h5 class="font-16 mt-0 sp-line-1">
+                            <a
+                              href="ecommerce-product-detail.html"
+                              class="text-dark"
+                              >Amazing Modern Chair</a
+                            >
+                          </h5>
+                          <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </div>
+                          <h5 class="m-0">
+                            <span class="text-muted"> Stocks : 235 pcs</span>
+                          </h5>
+                        </div>
+                        <div class="col-auto">
+                          <div class="product-price-tag">
+                            $49
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end row -->
+                    </div>
+                    <!-- end product info-->
+                  </div>
+                  <!-- end card-box-->
+                </div>
+                <!-- end col-->
+
+                <div class="col-md-6 col-xl-3">
+                  <div class="card-box product-box">
+                    <div class="product-action">
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-success btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-pencil"></i
+                      ></a>
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-danger btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-close"></i
+                      ></a>
+                    </div>
+
+                    <div>
+                      <img
+                        src="assets/images/products/product-4.jpg"
+                        alt="product-pic"
+                        class="img-fluid"
+                      />
+                    </div>
+
+                    <div class="product-info">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <h5 class="font-16 mt-0 sp-line-1">
+                            <a
+                              href="ecommerce-prduct-detail.html"
+                              class="text-dark"
+                              >Designer Awesome Chair</a
+                            >
+                          </h5>
+                          <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </div>
+                          <h5 class="m-0">
+                            <span class="text-muted"> Stocks : 385 pcs</span>
+                          </h5>
+                        </div>
+                        <div class="col-auto">
+                          <div class="product-price-tag">
+                            $29
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end row -->
+                    </div>
+                    <!-- end product info-->
+                  </div>
+                  <!-- end card-box-->
+                </div>
+                <!-- end col-->
+
+                <div class="col-md-6 col-xl-3">
+                  <div class="card-box product-box">
+                    <div class="product-action">
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-success btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-pencil"></i
+                      ></a>
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-danger btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-close"></i
+                      ></a>
+                    </div>
+
+                    <div>
+                      <img
+                        src="assets/images/products/product-5.jpg"
+                        alt="product-pic"
+                        class="img-fluid"
+                      />
+                    </div>
+
+                    <div class="product-info">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <h5 class="font-16 mt-0 sp-line-1">
+                            <a
+                              href="ecommerce-prduct-detail.html"
+                              class="text-dark"
+                              >The butterfly chair</a
+                            >
+                          </h5>
+                          <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </div>
+                          <h5 class="m-0">
+                            <span class="text-muted"> Stocks : 25 pcs</span>
+                          </h5>
+                        </div>
+                        <div class="col-auto">
+                          <div class="product-price-tag">
+                            $49
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end row -->
+                    </div>
+                    <!-- end product info-->
+                  </div>
+                  <!-- end card-box-->
+                </div>
+                <!-- end col-->
+
+                <div class="col-md-6 col-xl-3">
+                  <div class="card-box product-box">
+                    <div class="product-action">
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-success btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-pencil"></i
+                      ></a>
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-danger btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-close"></i
+                      ></a>
+                    </div>
+
+                    <div>
+                      <img
+                        src="assets/images/products/product-6.jpg"
+                        alt="product-pic"
+                        class="img-fluid"
+                      />
+                    </div>
+
+                    <div class="product-info">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <h5 class="font-16 mt-0 sp-line-1">
+                            <a
+                              href="ecommerce-prduct-detail.html"
+                              class="text-dark"
+                              >Dining Chairs</a
+                            >
+                          </h5>
+                          <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </div>
+                          <h5 class="m-0">
+                            <span class="text-muted"> Stocks : 39 pcs</span>
+                          </h5>
+                        </div>
+                        <div class="col-auto">
+                          <div class="product-price-tag">
+                            $19
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end row -->
+                    </div>
+                    <!-- end product info-->
+                  </div>
+                  <!-- end card-box-->
+                </div>
+                <!-- end col-->
+
+                <div class="col-md-6 col-xl-3">
+                  <div class="card-box product-box">
+                    <div class="product-action">
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-success btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-pencil"></i
+                      ></a>
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-danger btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-close"></i
+                      ></a>
+                    </div>
+
+                    <div>
+                      <img
+                        src="assets/images/products/product-7.jpg"
+                        alt="product-pic"
+                        class="img-fluid"
+                      />
+                    </div>
+
+                    <div class="product-info">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <h5 class="font-16 mt-0 sp-line-1">
+                            <a
+                              href="ecommerce-prduct-detail.html"
+                              class="text-dark"
+                              >Plastic Armchair</a
+                            >
+                          </h5>
+                          <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </div>
+                          <h5 class="m-0">
+                            <span class="text-muted"> Stocks : 36 pcs</span>
+                          </h5>
+                        </div>
+                        <div class="col-auto">
+                          <div class="product-price-tag">
+                            $99
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end row -->
+                    </div>
+                    <!-- end product info-->
+                  </div>
+                  <!-- end card-box-->
+                </div>
+                <!-- end col-->
+
+                <div class="col-md-6 col-xl-3">
+                  <div class="card-box product-box">
+                    <div class="product-action">
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-success btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-pencil"></i
+                      ></a>
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-danger btn-xs waves-effect waves-light"
+                        ><i class="mdi mdi-close"></i
+                      ></a>
+                    </div>
+
+                    <div>
+                      <img
+                        src="assets/images/products/product-8.jpg"
+                        alt="product-pic"
+                        class="img-fluid"
+                      />
+                    </div>
+
+                    <div class="product-info">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <h5 class="font-16 mt-0 sp-line-1">
+                            <a
+                              href="ecommerce-prduct-detail.html"
+                              class="text-dark"
+                              >Wing Chairs</a
+                            >
+                          </h5>
+                          <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </div>
+                          <h5 class="m-0">
+                            <span class="text-muted"> Stocks : 128 pcs</span>
+                          </h5>
+                        </div>
+                        <div class="col-auto">
+                          <div class="product-price-tag">
+                            $29
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end row -->
+                    </div>
+                    <!-- end product info-->
+                  </div>
+                  <!-- end card-box-->
+                </div>
+                <!-- end col-->
+              </div>
+            </div>
+            <!-- end row-->
+
+            <div class="row">
+              <div class="col-12">
+                <ul
+                  class="pagination pagination-rounded justify-content-end mb-3"
+                >
+                  <li class="page-item">
+                    <a
+                      class="page-link"
+                      href="javascript: void(0);"
+                      aria-label="Previous"
+                    >
+                      <span aria-hidden="true">«</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link" href="javascript: void(0);">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="javascript: void(0);">2</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="javascript: void(0);">3</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="javascript: void(0);">4</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="javascript: void(0);">5</a>
+                  </li>
+                  <li class="page-item">
+                    <a
+                      class="page-link"
+                      href="javascript: void(0);"
+                      aria-label="Next"
+                    >
+                      <span aria-hidden="true">»</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- end col-->
+            </div>
+            <!-- end row-->
+          </div>
+          <!-- container -->
+        </div>
+        <!-- content -->
+
+        <!-- Footer Start -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        2015 - 2019 &copy; UBold theme by <a href="">Coderthemes</a> 
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-md-right footer-links d-none d-sm-block">
+                            <a href="javascript:void(0);">About Us</a>
+                            <a href="javascript:void(0);">Help</a>
+                            <a href="javascript:void(0);">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end Footer -->
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- End Page content -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Right Sidebar -->
+    <div class="right-bar">
+        <div class="rightbar-title">
+            <a href="javascript:void(0);" class="right-bar-toggle float-right">
+                <i class="dripicons-cross noti-icon"></i>
+            </a>
+            <h5 class="m-0 text-white">Settings</h5>
+        </div>
+        <div class="slimscroll-menu">
+            <!-- User box -->
+            <div class="user-box">
+                <div class="user-img">
+                    <img src="assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
+                    <a href="javascript:void(0);" class="user-edit"><i class="mdi mdi-pencil"></i></a>
+                </div>
+            
+                <h5><a href="javascript: void(0);">Geneva Kennedy</a> </h5>
+                <p class="text-muted mb-0"><small>Admin Head</small></p>
+            </div>
+
+            <!-- Settings -->
+            <hr class="mt-0" />
+            <h5 class="pl-3">Basic Settings</h5>
+            <hr class="mb-0" />
+
+            <div class="p-3">
+                <div class="checkbox checkbox-primary mb-2">
+                    <input id="Rcheckbox1" type="checkbox" checked>
+                    <label for="Rcheckbox1">
+                        Notifications
+                    </label>
+                </div>
+                <div class="checkbox checkbox-primary mb-2">
+                    <input id="Rcheckbox2" type="checkbox" checked>
+                    <label for="Rcheckbox2">
+                        API Access
+                    </label>
+                </div>
+                <div class="checkbox checkbox-primary mb-2">
+                    <input id="Rcheckbox3" type="checkbox">
+                    <label for="Rcheckbox3">
+                        Auto Updates
+                    </label>
+                </div>
+                <div class="checkbox checkbox-primary mb-2">
+                    <input id="Rcheckbox4" type="checkbox" checked>
+                    <label for="Rcheckbox4">
+                        Online Status
+                    </label>
+                </div>
+                <div class="checkbox checkbox-primary mb-0">
+                    <input id="Rcheckbox5" type="checkbox" checked>
+                    <label for="Rcheckbox5">
+                        Auto Payout
+                    </label>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <hr class="mt-0" />
+            <h5 class="pl-3 pr-3">Messages <span class="float-right badge badge-pill badge-danger">25</span></h5>
+            <hr class="mb-0" />
+            <div class="p-3">
+                <div class="inbox-widget">
+                    <div class="inbox-item">
+                        <div class="inbox-item-img"><img src="assets/images/users/user-2.jpg" class="rounded-circle" alt=""></div>
+                        <p class="inbox-item-author"><a href="javascript: void(0);" class="text-dark">Tomaslau</a></p>
+                        <p class="inbox-item-text">I've finished it! See you so...</p>
+                    </div>
+                    <div class="inbox-item">
+                        <div class="inbox-item-img"><img src="assets/images/users/user-3.jpg" class="rounded-circle" alt=""></div>
+                        <p class="inbox-item-author"><a href="javascript: void(0);" class="text-dark">Stillnotdavid</a></p>
+                        <p class="inbox-item-text">This theme is awesome!</p>
+                    </div>
+                    <div class="inbox-item">
+                        <div class="inbox-item-img"><img src="assets/images/users/user-4.jpg" class="rounded-circle" alt=""></div>
+                        <p class="inbox-item-author"><a href="javascript: void(0);" class="text-dark">Kurafire</a></p>
+                        <p class="inbox-item-text">Nice to meet you</p>
+                    </div>
+
+                    <div class="inbox-item">
+                        <div class="inbox-item-img"><img src="assets/images/users/user-5.jpg" class="rounded-circle" alt=""></div>
+                        <p class="inbox-item-author"><a href="javascript: void(0);" class="text-dark">Shahedk</a></p>
+                        <p class="inbox-item-text">Hey! there I'm available...</p>
+                    </div>
+                    <div class="inbox-item">
+                        <div class="inbox-item-img"><img src="assets/images/users/user-6.jpg" class="rounded-circle" alt=""></div>
+                        <p class="inbox-item-author"><a href="javascript: void(0);" class="text-dark">Adhamdannaway</a></p>
+                        <p class="inbox-item-text">This theme is awesome!</p>
+                    </div>
+                </div> <!-- end inbox-widget -->
+            </div> <!-- end .p-3-->
+
+        </div> <!-- end slimscroll-menu-->
+    </div>
+    <!-- /Right-bar -->
+
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay"></div>
+
+    <!-- Vendor js -->
+    <script src="assets/js/vendor.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/pages/products.init.js"></script>
+    <script src="assets/js/app.min.js"></script>
+  </body>
+</html>

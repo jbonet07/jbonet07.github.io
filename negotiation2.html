@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>UBold - Responsive Admin Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      content="A fully featured admin theme which can be used to build CRM, CMS, etc."
+      name="description"
+    />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- App css -->
+    <link
+      href="assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- Begin page -->
+    <div id="wrapper">
+      <!-- Topbar Start -->
+      <div class="navbar-custom">
+        <!-- LOGO -->
+        <div class="logo-box">
+          <a href="index.html" class="logo text-center">
+            <span class="logo-lg">
+              <img src="assets/images/LOGO.png" alt="" height="35" />
+              <!-- <span class="logo-lg-text-light">UBold</span> -->
+            </span>
+            <span class="logo-sm">
+              <!-- <span class="logo-sm-text-dark">U</span> -->
+              <img src="assets/images/logo-sm.png" alt="" height="24" />
+            </span>
+          </a>
+        </div>
+        <div
+          class="input-group"
+          style="width: 50%; height: calc(1.5em + .9rem + 2px);margin: auto"
+        >
+          <div class="input-group-prepend">
+            <div>
+              <select
+                class="form-control"
+                id="searchType"
+                style="background-color: #32ad6c; color: white; border: none"
+              >
+                <option>Products</option>
+                <option>Suppliers</option>
+              </select>
+            </div>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="search-inp"
+            placeholder="Search..."
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-secondary"
+              type="submit"
+              style="background-color: #32ad6c; color: white"
+              id="search-btn"
+              onclick="searchLocal()"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="float-right" style="align-content: center; display: flex">
+          <select class="form-control" id="language-select" style="color: gray">
+            <option>English</option>
+            <option>Spanish</option>
+          </select>
+        </div>
+      </div>
+      <script>
+        if (window.sessionStorage.getItem("search"))
+          document.getElementById("search-inp").value = window.sessionStorage.getItem(
+            "search"
+          );
+        function searchLocal() {
+          var x = document.getElementById("search-inp").value;
+          window.sessionStorage.setItem("search", x);
+          var type = document.getElementById("searchType").value;
+          if (type === "Products") {
+            window.location.replace("products.html");
+          } else {
+            window.location.replace("suppliers.html");
+          }
+        }
+      </script>
+      <!-- end Topbar -->
+
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+      <span id="check-page" hidden>step2</span>
+      <div class="content-page" style="margin-top: 70px">
+        <div style="padding: 2rem">
+          <div class="row" style="height: 10rem; align-content: space-between">
+            <div
+              class="col-md-2 text-center"
+              style="border: solid 1px black; display: flex; flex-direction: column; justify-content: space-between"
+            >
+              <h3>All Inquires</h3>
+              <div style="display:flex; flex-wrap: no-wrap">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search..."
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-secondary"
+                    type="submit"
+                    style="background-color: #32ad6c; color: white"
+                    id="search-btn"
+                  >
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+              <div
+                style="display:flex; justify-content: space-around; align-content: flex-end"
+              >
+                <span>All Statuses</span>
+                <span>Unread</span>
+              </div>
+            </div>
+            <div
+              class="col-md-1 text-right"
+              style="border: solid 1px black; display:flex; flex-direction: column; justify-content: space-around; align-content: flex-end"
+            >
+              <div>
+                <h3>Zara S.A</h3>
+                <span>BARCELONA/SPAIN</span>
+              </div>
+              <div><span>Alexandre Mosquera</span></div>
+            </div>
+            <div
+              class="col-md-5"
+              style="border: solid 1px black; display: flex; justify-content: space-around; padding-top: 1.2rem; align-content: center"
+            >
+              <div
+                class="text-center align-middle"
+                style="font-weight: bold"
+                id="step1"
+              >
+                <h1 style="font-weight: bolder">1</h1>
+                <p>Start Negotiation</p>
+              </div>
+              <div
+                class="text-center align-middle step-indicator"
+                style="font-weight: bold; color:#32ad6c !important;"
+                id="step2"
+              >
+                <h1 style="font-weight: bolder;  color:#32ad6c !important;">
+                  2
+                </h1>
+                <p>Confirm Negotiation</p>
+              </div>
+              <div
+                class="text-center align-middle step-indicator"
+                style="font-weight: bold"
+                id="step3"
+              >
+                <h1 style="font-weight: bolder">3</h1>
+                <p>Succes</p>
+              </div>
+            </div>
+            <div
+              class="col-md-4 text-center"
+              style="border: solid 1px black; padding-top: 1.2rem; background-color: rgb(167, 164, 164)"
+            >
+              <h3>NEGOTIATION ID: 000001</h3>
+              <h3>
+                STATUS:
+                <span
+                  style="color:#32ad6c !important;font-weight: bold; font-size: 1rem"
+                  id="negotiation-status"
+                  >Waiting to success</span
+                >
+              </h3>
+            </div>
+          </div>
+          <div class="row" style="height: 40rem">
+            <div class="col-md-2" style="border: solid 1px black; padding: 0">
+              <div
+                style="border-bottom: solid 1px black; display: flex; justify-content: center "
+              >
+                <span style="margin-right: 5px; font-weight: 500">BUYER</span>
+                <div class="custom-control custom-switch">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="customSwitch1"
+                  />
+                  <label class="custom-control-label" for="customSwitch1"
+                    >SELLER</label
+                  >
+                </div>
+              </div>
+              <div
+                class="text-center"
+                style="border-bottom: solid 1px black; height: 12rem"
+              >
+                <h3>PRODUCTS</h3>
+              </div>
+            </div>
+            <div
+              class="col-md-6"
+              style="border: solid 1px black; text-align: center; padding-top: 4rem;height: 100%; overflow: auto;"
+            >
+              <h1 style="text-align: center">Negotiation Details</h1>
+              <h4 style="text-align: center; margin-bottom: 0">
+                Negotiation Nº 00001
+              </h4>
+              <h4 style="text-align: center">Date: 03/12/2018</h4>
+              <div
+                class="row"
+                style="flex-wrap:nowrap; justify-content: space-around; font-size: 1rem; text-align: left; margin-top: 1rem"
+              >
+                <div class="col-4">
+                  <div style="margin-bottom: 1rem">
+                    <b>Buyer Registered</b>
+                    <div><b>Company Name:</b> SWINTFAIR</div>
+                  </div>
+                  <div style="margin-bottom: 1rem">
+                    <b>Buyer Registered</b>
+                    <div><b>Company Address:</b> Ireland</div>
+                  </div>
+                  <div style="margin-bottom: 1rem">
+                    <b>Email:</b> swint@swintfair.com
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div style="margin-bottom: 1rem">
+                    <b>Seller Registered</b>
+                    <div><b>Company Name:</b> Zara</div>
+                  </div>
+                  <div style="margin-bottom: 1rem">
+                    <b>Seller Registered</b>
+                    <div><b>Company Address:</b> Spain</div>
+                  </div>
+                  <div style="margin-bottom: 1rem">
+                    <b>Email:</b> info@zara.com
+                  </div>
+                </div>
+              </div>
+              <div style="height: 1px; border-bottom:2px gray solid"></div>
+              <div
+                class="row"
+                style="flex-wrap: nowrap; margin: 1rem 0 1rem 0; font-size: 1rem; text-align: left;"
+              >
+                <img
+                  src="assets/images/products/product-10.jpg"
+                  height="200"
+                  width="200"
+                />
+                <div style="margin-left: 1.5rem">
+                  <div><b>Product Name: </b> Waves Shirt</div>
+                  <div>
+                    <b>Product Name: </b>
+                    <span style="color: #32ad6c">Waves Shirt</span>
+                  </div>
+                  <div><b>Unit Price: 150 EUR</b></div>
+                  <div><b>Quantity Order: 210</b></div>
+                  <div><b>Product Specifications</b></div>
+                  <p>30% Madness</p>
+                </div>
+              </div>
+              <div style="height: 1px; border-bottom:2px gray solid;"></div>
+
+              <div style="text-align: left">
+                <b>Shipping Address</b>
+                <div
+                  style="width: 100%; border: 1px solid black; background-color: #b2efd0; padding: 1rem"
+                >
+                  <div style="border-bottom: 1px solid lightgrey">
+                    Contact Name
+                  </div>
+                  <div style="border-bottom: 1px solid lightgrey">
+                    Country Region
+                  </div>
+                  <div style="border-bottom: 1px solid lightgrey">Address</div>
+                  <div style="border-bottom: 1px solid lightgrey">City</div>
+                  <div style="border-bottom: 1px solid lightgrey">Province</div>
+                  <div style="border-bottom: 1px solid lightgrey">
+                    Postal Code
+                  </div>
+                  <div style="border-bottom: 1px solid lightgrey">
+                    Phone Number
+                  </div>
+                </div>
+              </div>
+              <div
+                style="height: 1px; border-bottom:2px gray solid; margin-top: 1rem"
+              ></div>
+              <div style="text-align: left">
+                <b>Shipment Terms</b>
+                <div
+                  class="row"
+                  style="flex-wrap: nowrap; text-align: center; justify-content: space-around"
+                >
+                  <div>
+                    <h4 style="color:#32ad6c">Sea Freight</h4>
+                    <h3>Logo</h3>
+                  </div>
+                  <div>
+                    <h4 style="color:#32ad6c">Trade Terms</h4>
+                    <h3>CIF</h3>
+                  </div>
+                  <div>
+                    <h4 style="color:#32ad6c">Port of Discharge</h4>
+                    <h3>Dublin</h3>
+                  </div>
+                  <div>
+                    <h4 style="color:#32ad6c">Bill of Lading</h4>
+                    <h3>Release</h3>
+                  </div>
+                </div>
+              </div>
+              <div
+                style="height: 1px; border-bottom:2px gray solid; margin-top: 1rem"
+              ></div>
+              <div style="text-align: left;">
+                <b>Shipment Date</b>
+                <div style="margin-left: 1rem; margin-top: 1rem">
+                  <div style="margin-top: 1rem">
+                    <b
+                      >Day(s) after Seller Recieves
+                      <span style="color: #32ad6c">INITIAL PAYMENT</span></b
+                    >
+                  </div>
+                  <div style="margin-top: 1rem">
+                    <b>Other Trade terms requirements</b>
+                  </div>
+                  <div>None</div>
+                  <div style="margin-top: 1rem">
+                    <b>Other schedule requirements</b>
+                  </div>
+                  <div>5 days after payment</div>
+                </div>
+              </div>
+              <div
+                style="height: 1px; border-bottom:2px gray solid; margin-top: 1rem"
+              ></div>
+              <div style="text-align: left;">
+                <b>Documentation</b>
+                <div
+                  style="margin-left: 1rem; margin-top: 1rem; display: flex; flex-direction: column"
+                >
+                  <b>Commercial Invoice (CI)</b>
+                  <b>Packing List (PL)</b>
+                  <b>Bill of Lading (BL)</b>
+                  <div style="margin-top: 1rem">
+                    <b>Other documentation requirements</b>
+                    <div>None</div>
+                  </div>
+                </div>
+              </div>
+              <div
+                style="height: 1px; border-bottom:2px gray solid; margin-top: 1rem"
+              ></div>
+              <div style="text-align: left;">
+                <b>Payment Terms</b>
+                <div style="margin-left: 1rem; margin-top: 1rem">
+                  <div style="margin-top: 1rem">
+                    <b
+                      >Total Order
+                      <span style="color: #32ad6c">EUR€ 31500</span></b
+                    >
+                  </div>
+                  <div style="margin-top: 1rem">
+                    <b>Amount of Initial Payment </b>
+                    <span>70% (EUR€ 22050)</span>
+                  </div>
+                  <div style="margin-top: 1rem">
+                    <b>Amount of Balance Payment </b>
+                    <span>EUR€ 9450</span>
+                  </div>
+                  <div style="margin-top: 1rem">
+                    <b>Balance Payment </b>
+                    <span>Payment after buyer recieve releas BL</span>
+                  </div>
+                  <div style="margin-top: 1rem">
+                    <b>Payment Method </b>
+                    <span>T/T</span>
+                  </div>
+                  <div style="margin-top: 1rem">
+                    <b>Other balance payment requirements</b>
+                    <div>None</div>
+                  </div>
+                </div>
+              </div>
+              <div
+                style="height: 1px; border-bottom:2px gray solid; margin-top: 1rem"
+              ></div>
+              <div style="text-align: left;">
+                <b>Additional Remarks</b>
+                <div
+                  style="margin-left: 1rem; margin-top: 1rem; display: flex; flex-direction: column"
+                >
+                  None
+                </div>
+              </div>
+              <div
+                style="height: 1px; border-bottom:2px gray solid; margin-top: 1rem"
+              ></div>
+            </div>
+            <div class="col-md-4" style="padding: 0">
+              <div
+                style="display: flex;flex-direction: column;flex-wrap: nowrap; padding: 40px;border: solid 1px black; font-weight: bolder !important"
+              >
+                <button
+                  style="height: 10%; background-color: #f7b84b; border-radius: 50px;color: white; font-size: 1.2rem; margin: 1rem; font-weight: bold"
+                  class="form-control btn-warning"
+                  id="goback-negotiation"
+                >
+                  RETURN TO NEGOTIATION
+                </button>
+                <button
+                  style="height: 10%; background-color: #6c7c74;color:white; border-radius: 50px; font-size: 1.2rem;  margin: 1rem; font-weight: bold"
+                  class="form-control"
+                  id="succes-negotiation"
+                >
+                  CONTINUE FOR SUCCESS
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- End Page content -->
+      <!-- ============================================================== -->
+    </div>
+
+    <!-- Vendor js -->
+    <script src="assets/js/vendor.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/pages/negotiation.init.js"></script>
+    <script src="assets/js/app.min.js"></script>
+  </body>
+</html>
